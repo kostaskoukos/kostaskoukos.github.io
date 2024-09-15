@@ -1,13 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout title="Kostas' Portfolio">
   <main class="px-4 py-4">
     <div class="flex flex-col gap-3">
       <h1
-        class="inline-block bg-[linear-gradient(to_right,theme(colors.primary),theme(colors.accent))] bg-clip-text text-5xl font-black text-[transparent] drop-shadow-sm lg:text-6xl"
+        class="inline-block bg-[linear-gradient(to_right,theme(colors.primary),theme(colors.accent))] bg-clip-text text-4xl font-black text-[transparent] drop-shadow-sm md:text-5xl"
       >
         Kostas Koukos
       </h1>
@@ -20,5 +21,14 @@ import Link from "../components/Link.astro";
         <Link href="#projects">Projects</Link>
       </div>
     </div>
+    <h2 class="my-4 text-2xl font-semibold" id="projects">Projects</h2>
+    <section
+      class="grid place-items-center gap-3 md:grid-cols-2 lg:grid-cols-3"
+    >
+      <Card
+        description="Discord bot with slash commands, written in Golang"
+        title="Slash bot"
+      />
+    </section>
   </main>
 </Layout>
