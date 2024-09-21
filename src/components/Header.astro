@@ -1,6 +1,18 @@
+---
+import Link from "../components/Link.astro";
+---
+
 <header class="border-b border-b-secondary">
   <nav class="bg-gray-400 text-white flex items-center justify-end gap-3 p-3">
-    <a aria-label="My Github profile" href="https://github.com/kostaskoukos" target="_blank">
+    <div class="flex-grow">
+      <a class="font-semibold" href="/">Kostas Koukos</a>
+      <Link href="/blog">Blog</Link>
+    </div>
+    <a
+      aria-label="My Github profile"
+      href="https://github.com/kostaskoukos"
+      target="_blank"
+    >
       <svg
         width="24"
         height="24"
