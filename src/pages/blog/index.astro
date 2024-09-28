@@ -1,0 +1,45 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Link from "../../components/Link.astro";
+
+const posts: { url: string; message: string }[] = [
+  { url: "/welcome", message: "Welcome To My Blog" },
+  { url: "/slash-bot", message: "Slash Bot Dev Blog" },
+  { url: "/leetcode", message: "Leetcode practice" },
+];
+---
+
+<Layout page="blog" title="Kostas' Blog">
+  <h1
+    class="bg-[linear-gradient(to_right,theme(colors.primary),theme(colors.accent))] bg-clip-text py-5 text-center text-4xl font-black text-[transparent] md:text-5xl"
+  >
+    Things I have written.
+  </h1>
+  <ul class="relative list-none space-y-6 px-4">
+    <div
+      class="absolute bottom-0 left-5 top-0 w-[2px] bg-text opacity-50"
+      aria-hidden="true"
+    >
+    </div>
+    {
+      posts.map((post) => (
+        <li class="relative">
+          <div class="flex items-center">
+            <div class="z-10 size-3 rounded-full bg-text" aria-hidden="true" />
+            <div class="ml-3 flex items-baseline">
+          <Link href={post.url} class="text-lg font-medium">
+                {post.message}
+              </Link>
+              &nbsp;
+              <span class="text-sm text-secondary">•</span>
+              &nbsp;
+              <time class="text-sm opacity-80" datetime="2024-09-21">
+                28-9-2024
+              </time>
+            </div>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
