@@ -1,6 +1,7 @@
 ---
 import "../base.css";
 import Link from "../components/Link.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -19,6 +20,7 @@ const { title, page } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body
     class="mx-auto bg-background font-mono text-text transition-colors duration-200 md:w-3/5"
@@ -27,12 +29,14 @@ const { title, page } = Astro.props;
       <nav
         class="bg-gray-400 text-white flex items-center justify-end gap-3 p-3"
       >
-        <div class="flex-grow flex gap-6">
-          <Link class={`${page === "index" ? "font-semibold" : "opacity-95"}`} href="/"
-            >Kostas Koukos</Link
+        <div class="flex flex-grow gap-6">
+          <Link
+            class={`${page === "index" ? "font-semibold" : "opacity-95"}`}
+            href="/">Kostas Koukos</Link
           >
-          <Link class={`${page === "blog" ? "font-semibold" : "opacity-95"}`} href="/blog"
-            >Blog</Link
+          <Link
+            class={`${page === "blog" ? "font-semibold" : "opacity-95"}`}
+            href="/blog">Blog</Link
           >
         </div>
         <a
@@ -74,24 +78,31 @@ const { title, page } = Astro.props;
           ? "dark"
           : "light";
       };
-      const isDark = getThemePreference() === "dark";
-      const doc = document.documentElement;
-      doc.classList[isDark ? "add" : "remove"]("dark");
 
-      const observer = new MutationObserver(() => {
-        const isDark = doc.classList.contains("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-      });
-      observer.observe(doc, {
-        attributes: true,
-        attributeFilter: ["class"],
-      });
+      const switchTheme = () => {
+        const doc = document.documentElement;
 
-      document.querySelector("#theme")?.addEventListener("click", () => {
-        doc.classList[doc.classList.contains("dark") ? "remove" : "add"](
-          "dark",
-        );
-      });
+        const isDark = getThemePreference() === "dark";
+        doc.classList[isDark ? "add" : "remove"]("dark");
+
+        new MutationObserver(() => {
+          const isDark = doc.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        }).observe(doc, {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+
+        document.querySelector("#theme")?.addEventListener("click", () => {
+          console.log("clicked");
+          doc.classList[doc.classList.contains("dark") ? "remove" : "add"](
+            "dark",
+          );
+        });
+      };
+
+      switchTheme();
+      document.addEventListener("astro:after-swap", switchTheme);
     </script>
   </body>
 </html>
