@@ -9,19 +9,20 @@ const { title, description, github, url } = Astro.props;
 ---
 
 <div
-  class="cursor-pointer rounded-md bg-gradient-to-br from-primary to-accent p-3 shadow-md transition-transform hover:scale-105"
+  class="cursor-pointer rounded-md bg-secondary p-3 transition-colors hover:bg-gradient-to-br hover:from-primary hover:to-accent hover:shadow-2xl"
 >
   <div class="flex flex-nowrap items-center gap-1">
-    <h3 class="flex-grow text-xl md:text-2xl font-medium text-text">{title}</h2>
+    <h3 class="flex-grow text-xl font-medium text-text md:text-2xl">{title}</h3>
     <a
       aria-label={`${title} Github repository`}
       href={`https://github.com/kostaskoukos/${github ?? ""}`}
       target="_blank"
     >
       <svg
-        width="20"
-        height="20"
+        width="22"
+        height="22"
         xmlns="http://www.w3.org/2000/svg"
+        class="hover:scale-110"
         viewBox="0 0 496 512"
       >
         <path
