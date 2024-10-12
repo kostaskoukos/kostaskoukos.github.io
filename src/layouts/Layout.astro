@@ -1,7 +1,7 @@
 ---
 import "../base.css";
 import Link from "../components/Link.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -20,7 +20,7 @@ const { title, page } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body
     class="mx-auto bg-background font-mono text-text transition-colors duration-200 md:w-3/5"

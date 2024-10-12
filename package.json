@@ -10,9 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.4",
-    "@astrojs/tailwind": "5.1.1",
-    "astro": "4.15.11",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "5.1.2",
+    "astro": "5.0.0-beta.4",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwind-merge": "^2.5.2",
