@@ -26,9 +26,7 @@ const { title, page } = Astro.props;
     class="mx-auto bg-background font-mono text-text transition-colors duration-200 md:w-3/5"
   >
     <header class="border-b border-b-secondary">
-      <nav
-        class="bg-gray-400 text-white flex items-center justify-end gap-3 p-3"
-      >
+      <nav class="flex items-center justify-end gap-3 p-3 text-white">
         <div class="flex flex-grow gap-6">
           <Link
             class={`${page === "index" ? "font-semibold" : "opacity-95"}`}
