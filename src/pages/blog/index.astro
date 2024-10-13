@@ -2,11 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import Link from "../../components/Link.astro";
 
-const posts: { url: string; message: string }[] = [
-  { url: "/welcome", message: "Welcome To My Blog" },
-  { url: "/slash-bot", message: "Slash Bot Dev Blog" },
-  { url: "/leetcode", message: "Leetcode practice" },
-];
+const posts = Object.values(
+  import.meta.glob("./*.md", { eager: true }),
+) as { frontmatter: { title: string; date: string; slug: string } }[];
 ---
 
 <Layout page="blog" title="Kostas' Blog">
@@ -27,14 +25,17 @@ const posts: { url: string; message: string }[] = [
           <div class="flex items-center">
             <div class="z-10 size-3 rounded-full bg-text" aria-hidden="true" />
             <div class="ml-3 flex items-baseline">
-          <Link href={post.url} class="text-lg font-medium">
-                {post.message}
+              <Link
+                href={"/blog/" + post.frontmatter.slug}
+                class="text-lg font-medium"
+              >
+                {post.frontmatter.title}
               </Link>
               &nbsp;
               <span class="text-sm text-secondary">•</span>
               &nbsp;
-              <time class="text-sm opacity-80" datetime="2024-09-21">
-                28-9-2024
+              <time class="text-sm opacity-80" datetime={post.frontmatter.date}>
+                {post.frontmatter.date.split("T")[0]}
               </time>
             </div>
           </div>
