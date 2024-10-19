@@ -27,14 +27,14 @@ const posts = Object.values(
             <div class="ml-3 flex items-baseline">
               <Link
                 href={"/blog/" + post.frontmatter.slug}
-                class="text-lg font-medium"
+                class="text-lg font-medium text-balance"
               >
                 {post.frontmatter.title}
               </Link>
               &nbsp;
               <span class="text-sm text-secondary">•</span>
               &nbsp;
-              <time class="text-sm opacity-80" datetime={post.frontmatter.date}>
+              <time class="text-sm opacity-80 text-balance" datetime={post.frontmatter.date}>
                 {post.frontmatter.date.split("T")[0]}
               </time>
             </div>
