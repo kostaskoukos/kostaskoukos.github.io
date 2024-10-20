@@ -4,7 +4,7 @@ import Link from "../../components/Link.astro";
 
 const posts = Object.values(
   import.meta.glob("./*.md", { eager: true }),
-) as { frontmatter: { title: string; date: string; slug: string } }[];
+).reverse() as { frontmatter: { title: string; date: string; slug: string } }[];
 ---
 
 <Layout page="blog" title="Kostas' Blog">
