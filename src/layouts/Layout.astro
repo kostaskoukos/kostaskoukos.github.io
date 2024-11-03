@@ -62,7 +62,7 @@ const { title, page } = Astro.props;
       </nav>
     </header>
 
-    <slot />
+    <div class="mx-3"><slot /></div>
     <script is:inline>
       const getThemePreference = () => {
         if (
