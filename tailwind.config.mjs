@@ -4,6 +4,20 @@ export default {
   theme: {
     extend: {
       typography: {
+        base: {
+          css: {
+            pre: {
+              fontSize: "0.9em",
+            },
+          },
+        },
+        sm: {
+          css: {
+            pre: {
+              fontSize: "1em",
+            },
+          },
+        },
         DEFAULT: {
           css: {
             "--tw-prose-body": "var(--text)",
