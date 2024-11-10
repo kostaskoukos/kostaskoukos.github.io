@@ -25,6 +25,7 @@ export default {
             "--tw-prose-headings": "var(--text)",
             "--tw-prose-code": "var(--text)",
             "--tw-prose-links": "var(--text)",
+            "--tw-prose-quotes": "var(--text)",
           },
         },
       },
