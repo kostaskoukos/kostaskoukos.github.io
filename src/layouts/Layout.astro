@@ -2,6 +2,7 @@
 import "../base.css";
 import Link from "../components/Link.astro";
 import { ClientRouter } from "astro:transitions";
+import LoadingIndicator from "astro-loading-indicator/component";
 
 interface Props {
   title: string;
@@ -36,6 +37,7 @@ const { title, page } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ClientRouter />
+    <LoadingIndicator color="white" threshold={false}/>
   </head>
   <body
     class="mx-auto bg-background font-mono text-text transition-colors duration-200 md:w-3/5"
