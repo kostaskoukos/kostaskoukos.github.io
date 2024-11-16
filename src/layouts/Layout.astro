@@ -18,6 +18,21 @@ const { title, page } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      page == "blog" &&
+      <>
+        <link
+              href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+              rel="stylesheet"
+            />
+        <style>
+        .katex-display { overflow: auto hidden; }
+        .katex-display > .katex { white-space: normal; }
+        .katex-display > .base { margin: 0.25em 0; }
+        .katex-display { margin: 0.5em 0; }
+        </style>
+      </>
+    }
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ClientRouter />
