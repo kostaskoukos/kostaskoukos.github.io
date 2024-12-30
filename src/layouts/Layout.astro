@@ -1,6 +1,5 @@
 ---
 import "../base.css";
-import Link from "../components/Link.astro";
 import { ClientRouter } from "astro:transitions";
 import LoadingIndicator from "astro-loading-indicator/component";
 
@@ -44,15 +43,12 @@ const { title, page } = Astro.props;
   >
     <header class="border-b border-b-secondary">
       <nav class="flex items-center justify-end gap-3 p-3 text-white">
-        <div class="flex flex-grow gap-6">
-          <Link
-            class={`${page === "index" ? "font-semibold" : "opacity-95"}`}
-            href="/">Kostas Koukos</Link
-          >
-          <Link
-            class={`${page === "blog" ? "font-semibold" : "opacity-95"}`}
-            href="/blog">Blog</Link
-          >
+        <div class="text-text flex flex-grow gap-6">
+          {page === "index" ? (
+          <b>Portfolio</b><span>/</span><span class="opacity-90">Blog</span>
+          ) : (
+          <span class="opacity-90">Portfolio</span><span>/</span><b>Blog</b>
+          )}
         </div>
         <a
           aria-label="My Github profile"
