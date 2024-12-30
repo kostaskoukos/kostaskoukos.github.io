@@ -17,10 +17,17 @@ $F$ is differentiable at $x$ with $F'(x)=f(x)$.
 
 $$
 \text{f is continuous} \iff f(x_0)=\lim_{x \to x_0^+}{f(x)} = \lim_{x \to x_0^-}{f(x)}
-\\[1em]
+$$
+
+$$
 \int_{-\infty}^{\infty}{e^{-x^2}}dx = \sqrt{\pi}
-\\[1em]
+$$
+
+$$
 \frac{\partial{W}}{\partial{b}} = \sum_{i=0}^{N}{L_i}
-\\[1em]
+$$
+
+$$
 \text{Riemann $\zeta$ function: } \; \zeta (s) = \sum_{i=0}^\infty{\dfrac{1}{i^s}},\; s \in \mathbb{C}
+
 $$
