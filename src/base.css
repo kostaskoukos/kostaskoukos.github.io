@@ -5,14 +5,14 @@
 @layer base {
   :root {
     --text: #171717;
-    --background: #f7f7f7;
+    --background: #dedede;
     --primary: #3bde77;
     --secondary: #c3bfbb;
     --accent: #2ad9f8;
   }
   .dark {
     --text: #e8e8e8;
-    --background: #080808;
+    --background: #121212;
     --primary: #21c45d;
     --secondary: #44403c;
     --accent: #07b6d5;
