@@ -2,6 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
 import Card from "../components/Card.astro";
+const posts: { frontmatter: { title: string; date: string; slug: string } }[] =
+  Object.values(import.meta.glob("./blog/*.md", { eager: true })).sort(
+    (a: any, b: any) => {
+      return (
+        new Date(b.frontmatter.date).valueOf() -
+        new Date(a.frontmatter.date).valueOf()
+      );
+    },
+  ) as { frontmatter: { title: string; date: string; slug: string } }[];
+
 ---
 
 <Layout page="index" title="Kostas' Portfolio">
@@ -17,9 +27,47 @@ import Card from "../components/Card.astro";
         <a
           class="text-md cursor-pointer rounded-full bg-primary px-4 py-2 text-center text-background transition-transform duration-200 hover:scale-105 hover:brightness-75"
           href="#about">About me</a
+      <h2
+        class="inline-block bg-[linear-gradient(to_right,theme(colors.primary),theme(colors.accent))] bg-clip-text text-3xl font-semibold text-[transparent]"
+      >
+        Things I have written.
+      </h2>
+      <ul class="relative list-none space-y-7 px-4 pb-6">
+        <div
+          class="absolute bottom-0 left-[21px] top-0 w-[2px] bg-text opacity-50"
+          aria-hidden="true"
         >
-        <Link href="#projects">Projects</Link>
-      </div>
+        </div>
+        {
+          posts.map((post) => (
+            <li class="relative">
+              <div class="flex items-center">
+                <div
+                  class="z-10 size-3 rounded-full bg-text"
+                  aria-hidden="true"
+                />
+                <div class="ml-3 flex items-baseline">
+                  <Link
+                    href={"/blog/" + post.frontmatter.slug}
+                    class="text-balance text-lg font-medium md:text-xl"
+                  >
+                    {post.frontmatter.title}
+                  </Link>
+                  &nbsp;
+                  <span class="text-sm text-secondary">•</span>
+                  &nbsp;
+                  <time
+                    class="text-balance text-sm opacity-80"
+                    datetime={post.frontmatter.date}
+                  >
+                    {post.frontmatter.date.split("T")[0]}
+                  </time>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
     </div>
     <h2 class="my-4 text-2xl font-semibold" id="projects">Projects</h2>
     <section
