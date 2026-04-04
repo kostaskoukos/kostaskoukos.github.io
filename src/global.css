@@ -9,4 +9,38 @@
 
 @theme {
   --font-mono: "JetBrains Mono", monospace;
+
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+
+  --color-card: #f9f9f9;
+  --color-card-foreground: #0a0a0a;
+
+  --color-primary: #000000;
+  --color-primary-foreground: #ffffff;
+
+  --color-muted: #f1f1f1;
+  --color-muted-foreground: #666666;
+
+  --color-border: #e5e5e5;
 }
+
+@layer base {
+  .dark {
+    --color-background: #0a0a0a;
+    --color-foreground: #fafafa;
+
+    --color-card: #161616;
+    --color-card-foreground: #fafafa;
+
+    --color-primary: #ffffff;
+    --color-primary-foreground: #000000;
+
+    --color-muted: #262626;
+    --color-muted-foreground: #a1a1a1;
+
+    --color-border: #262626;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
