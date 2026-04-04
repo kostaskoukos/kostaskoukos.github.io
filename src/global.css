@@ -1,2 +1,12 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/JetBrainsMono.woff2") format("woff2");
+  font-weight: 100 900;
+}
+
+@theme {
+  --font-mono: "JetBrains Mono", monospace;
+}
