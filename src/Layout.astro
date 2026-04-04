@@ -14,6 +14,23 @@ import "./global.css";
 		<title>Astro Basics</title>
 	</head>
 	<body class="font-mono bg-background text-foreground">
-		<slot />
+    <button id="theme" class="outline outline-red-500 text-foreground">toggle theme</button>
+    <script is:inline>
+      const doc = document.documentElement;
+      const toggleDark = () => {
+        doc.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          doc.classList.contains("dark") ? "dark" : "light"
+        );
+      }
+      document.querySelector("#theme").addEventListener("click", toggleDark);
+      if(localStorage.getItem("theme") == null) {
+        if(window.matchMedia("(prefers-color-scheme: dark)").matches) toggleDark();
+      } else if(localStorage.getItem("theme") === "dark") toggleDark();
+    </script>
+    <main>
+      <slot />
+    </main>
 	</body>
 </html>
