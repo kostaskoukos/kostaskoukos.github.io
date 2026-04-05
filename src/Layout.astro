@@ -2,35 +2,45 @@
 import "./global.css";
 ---
 
-
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body class="font-mono bg-background text-foreground">
-    <button id="theme" class="outline outline-red-500 text-foreground">toggle theme</button>
-    <script is:inline>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body class="max-w-full font-mono bg-background text-foreground px-4">
+    <header class="flex items-center justify-between py-4">
+      <nav>
+        <ul class="flex align-center gap-4">
+          <li><a href="" class="text-xs">Home</a></li>
+          <li><a href="" class="text-xs">Projects</a></li>
+          <li><a href="" class="text-xs">Blog</a></li>
+          <li><a href="" class="text-xs">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme" class="cursor-pointer size-4 rounded-full bg-foreground"></button>
+    </header>
+    <script>
       const doc = document.documentElement;
       const toggleDark = () => {
         doc.classList.toggle("dark");
         localStorage.setItem(
           "theme",
-          doc.classList.contains("dark") ? "dark" : "light"
+          doc.classList.contains("dark") ? "dark" : "light",
         );
-      }
-      document.querySelector("#theme").addEventListener("click", toggleDark);
-      if(localStorage.getItem("theme") == null) {
-        if(window.matchMedia("(prefers-color-scheme: dark)").matches) toggleDark();
-      } else if(localStorage.getItem("theme") === "dark") toggleDark();
+      };
+      document.querySelector("#theme")?.addEventListener("click", toggleDark);
+      if (localStorage.getItem("theme") == null) {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+          toggleDark();
+      } else if (localStorage.getItem("theme") === "dark") toggleDark();
     </script>
     <main>
       <slot />
     </main>
-	</body>
+  </body>
 </html>
