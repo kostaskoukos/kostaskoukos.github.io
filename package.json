@@ -4,7 +4,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.2",
+    "astro": "6.1.8",
     "prettier-plugin-astro": "^0.14.1",
     "tailwindcss": "^4.2.2"
   },
