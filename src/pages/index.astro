@@ -1,9 +1,27 @@
 ---
 import Layout from "../Layout.astro";
+import { Image } from "astro:assets";
+import me from "../me.jpeg";
 ---
 
 <Layout>
-  <h1 class="text-3xl text-foreground text-center">Kostas Koukos</h1>
+  <section id="home">
+    <div class="flex items-center gap-2">
+      <Image
+        class="rounded-full object-cover aspect-square w-32 md:w-48 lg:w-64"
+        layout="constrained"
+        src={me}
+        width="600"
+        height="600"
+        alt="Picture of me with a white shirt in a brown background"
+      />
+      <h1
+        class="grow text-lg md:text-2xl lg:text-3xl text-foreground text-center"
+      >
+        I am Kostas Koukos
+      </h1>
+    </div>
+  </section>
   <section id="contact">
     <h2 class="text-xl md:text-2xl lg:text-3xl m-4">Contact</h2>
     <ol class="flex flex-col gap-2 md:gap-4 pl-4 md:pl-8">
