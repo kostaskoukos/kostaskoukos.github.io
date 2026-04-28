@@ -2,6 +2,44 @@
 import Layout from "../Layout.astro";
 import { Image } from "astro:assets";
 import me from "../me.jpeg";
+
+const projects = [
+  {
+    name: "Portfolio",
+    description:
+      "The website you are looking at! Built with Astro.js v6 and TailwindCSS v4, and deployed to GitHub Pages.",
+    github: "kostaskoukos/kostaskoukos.github.io",
+    url: "https://kostaskoukos.github.io",
+  },
+  {
+    name: "Sky's Adventure",
+    description:
+      "A 2D Platformer in a sky setting built with Unity and C# together with a friend of mine.",
+    github: "kostaskoukos/Sky-s-Adventure",
+    url: "https://konstantinos-koukos.itch.io/skysadventure",
+  },
+  {
+    name: "Slash Bot",
+    description:
+      "A Discord bot built in Go and the discordgo library. It has basic chat commands like ping, memes, and playing songs in voice chat.",
+    github: "kostaskoukos/slash-bot",
+    url: null,
+  },
+  {
+    name: "Tic Tac Toe CLI",
+    description:
+      "A CLI tic tac toe game made in C++. It has both a PvP and a PvC mode which calculates algorithmically the Computer's best move.",
+    github: "kostaskoukos/tictactoe-cli",
+    url: null,
+  },
+  {
+    name: "rust-guess",
+    description:
+      "A simple CLI number guessing game in Rust that prompts players to use binary search to win.",
+    github: "kostaskoukos/rust-guess",
+    url: null,
+  },
+];
 ---
 
 <Layout>
@@ -24,35 +62,62 @@ import me from "../me.jpeg";
     <p class="max-w-[80ch] text-sm md:text-base p-5 text-foreground/85">
       I am a Computer Science student in Thessaloniki, Greece and I am obsessed
       with everything related to computers and Math since 2020! I have studied
-      Web Development, CLI applications and theoretic CS & Math. I want to combine
-      fundamental theoretic knowledge with practical, project experience to be
-      as productive as possible!
+      Web Development, CLI applications and theoretic CS & Math. I want to
+      combine fundamental theoretic knowledge with practical, project experience
+      to be as productive as possible!
     </p>
   </section>
+  <section id="projects">
+    <h2 class="text-xl md:text-2xl lg:text-3xl m-4 font-bold tracking-tight">
+      Projects
+    </h2>
+    <ol>
+      {
+        projects.map((project) => (
+          <li>
+              <span>{project.name}</span>
+              <a href={project.url}>link</a>
+              <a href={`https://github.com/${project.github}`}>github</a>
+              <p class="max-w-[80ch] text-sm md:text-base p-5 text-foreground/85">{project.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
   <section id="contact">
-    <h2 class="text-xl md:text-2xl lg:text-3xl m-4 font-bold tracking-tight">Contact</h2>
+    <h2 class="text-xl md:text-2xl lg:text-3xl m-4 font-bold tracking-tight">
+      Contact
+    </h2>
     <ol class="flex flex-col gap-2 md:gap-4 pl-4 md:pl-8">
       <li class="flex">
-        <span class="w-25 text-muted-foreground text-xs md:text-sm">email:</span><a
+        <span class="w-25 text-muted-foreground text-xs md:text-sm">email:</span
+        ><a
           class="text-sm md:text-base font-semibold bg-muted px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
           href="mailto:kkonst2014@gmail.com">kkonst2014@gmail.com</a
         >
       </li>
       <li class="flex">
-        <span class="w-25 text-muted-foreground text-xs md:text-sm">github:</span><a
+        <span class="w-25 text-muted-foreground text-xs md:text-sm"
+          >github:</span
+        ><a
           class="text-sm md:text-base font-semibold bg-muted px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
           href="https://github.com/kostaskoukos">/kostaskoukos</a
         >
       </li>
       <li class="flex">
-        <span class="w-25 text-muted-foreground text-xs md:text-sm">instagram:</span><a
+        <span class="w-25 text-muted-foreground text-xs md:text-sm"
+          >instagram:</span
+        ><a
           class="text-sm md:text-base font-semibold bg-muted px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
           href="https://www.instagram.com/konstantinoskoukos_/"
           >/konstantinoskoukos_</a
         >
       </li>
       <li class="flex">
-        <span class="w-25 text-muted-foreground text-xs md:text-sm">location:</span><span class="text-sm md:text-base font-semibold px-1 py-0.5"
+        <span class="w-25 text-muted-foreground text-xs md:text-sm"
+          >location:</span
+        ><span
+          class="text-sm md:text-base font-semibold px-1 py-0.5"
           class="px-2 py-0.5">Thessaloniki, GR (UTC+2)</span
         >
       </li>
