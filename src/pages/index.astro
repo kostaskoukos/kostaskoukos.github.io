@@ -93,8 +93,13 @@ const posts = Object.values(
                 {project.name}
               </span>
               {project.url && (
-                <a target="_blank" href={project.url}>
+                <a
+                  aria-label="The project's page"
+                  target="_blank"
+                  href={project.url}
+                >
                   <svg
+                    aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
@@ -114,8 +119,13 @@ const posts = Object.values(
                   </svg>
                 </a>
               )}
-              <a target="_blank" href={`https://github.com/${project.github}`}>
+              <a
+                aria-label="The project's GitHub page"
+                target="_blank"
+                href={`https://github.com/${project.github}`}
+              >
                 <svg
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
