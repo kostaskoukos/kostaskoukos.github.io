@@ -1,0 +1,31 @@
+---
+export const frontmatter = {
+  title: "Hello World!",
+  date: "2026-05-01",
+  slug: "hello-world",
+};
+import Layout from "../../Layout.astro";
+---
+
+<Layout>
+  <article class="prose mx-auto">
+    <span class="text-xs md:text-sm text-foreground/85"
+    >{new Date(frontmatter.date).toLocaleDateString()}</span
+    >
+    <h1
+      class="table mx-auto p-1 text-lg md:text-2xl lg:text-3xl bg-foreground text-background font-black tracking-tight"
+    >
+      {frontmatter.title}
+    </h1>
+    <p class="text-sm md:text-base text-foreground/85">
+      I am a 19 year old computer science major in Thessaloniki, Greece and I am
+      writing my thoughts in this simple personal blog website.
+    </p>
+    <p class="text-sm md:text-base text-foreground/85">
+      This is the start of my blog! I will be sharing anything that I am
+      interested in, both computers or math related and unrelated stuff, like
+      sports, movies, etc. I hope to connect with people with similar interests
+      and learn more from this blog!
+    </p>
+  </article>
+</Layout>
