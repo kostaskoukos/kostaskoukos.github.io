@@ -68,7 +68,7 @@ const posts = Object.values(
         I am Kostas Koukos
       </h1>
     </div>
-    <p class="max-w-[80ch] text-sm md:text-base p-5 text-foreground/85">
+    <p class="max-w-[80ch] text-sm md:text-base p-5 text-foreground">
       I am a Computer Science student in Thessaloniki, Greece and I am obsessed
       with everything related to computers and Math since 2020! I have studied
       Web Development, CLI applications and theoretic CS & Math. I want to
@@ -160,7 +160,7 @@ const posts = Object.values(
             <div class="py-3">
               <a
                 href={`blog/${post.frontmatter.slug}`}
-                class="inline-block text-base md:text-lg font-medium bg-muted px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
+                class="inline-block text-base md:text-lg font-medium bg-surface px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
               >
                 {post.frontmatter.title.trim()}
               </a>
@@ -179,33 +179,34 @@ const posts = Object.values(
     </h2>
     <ol class="flex flex-col gap-2 md:gap-4 pl-4 md:pl-8">
       <li class="flex">
-        <span class="w-25 text-muted-foreground text-xs md:text-sm">email:</span
+        <span class="w-25 text-surface-foreground text-xs md:text-sm"
+          >email:</span
         ><a
-          class="text-sm md:text-base font-semibold bg-muted px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
+          class="text-sm md:text-base font-semibold bg-surface px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
           href="mailto:kkonst2014@gmail.com"
           target="_blank">kkonst2014@gmail.com</a
         >
       </li>
       <li class="flex">
-        <span class="w-25 text-muted-foreground text-xs md:text-sm"
+        <span class="w-25 text-surface-foreground text-xs md:text-sm"
           >github:</span
         ><a
-          class="text-sm md:text-base font-semibold bg-muted px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
+          class="text-sm md:text-base font-semibold bg-surface px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
           href="https://github.com/kostaskoukos"
           target="_blank">/kostaskoukos</a
         >
       </li>
       <li class="flex">
-        <span class="w-25 text-muted-foreground text-xs md:text-sm"
+        <span class="w-25 text-surface-foreground text-xs md:text-sm"
           >instagram:</span
         ><a
-          class="text-sm md:text-base font-semibold bg-muted px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
+          class="text-sm md:text-base font-semibold bg-surface px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
           href="https://www.instagram.com/konstantinoskoukos_/"
           target="_blank">/konstantinoskoukos_</a
         >
       </li>
       <li class="flex">
-        <span class="w-25 text-muted-foreground text-xs md:text-sm"
+        <span class="w-25 text-surface-foreground text-xs md:text-sm"
           >location:</span
         ><span
           class="text-sm md:text-base font-semibold px-1 py-0.5"
