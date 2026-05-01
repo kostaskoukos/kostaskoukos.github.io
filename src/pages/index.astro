@@ -40,6 +40,15 @@ const projects = [
     url: null,
   },
 ];
+
+const posts = Object.values(
+  import.meta.glob("./blog/*.astro", { eager: true }),
+).sort((a: any, b: any) => {
+  return (
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
+  );
+}) as { frontmatter: { title: string; date: string; slug: string } }[];
 ---
 
 <Layout>
@@ -120,6 +129,34 @@ const projects = [
               <p class="max-w-[80ch] text-sm md:text-base text-foreground/85">
                 {project.description}
               </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+  <section id="blog">
+    <h2 class="text-xl md:text-2xl lg:text-3xl m-4 font-bold tracking-tight">
+      Blog
+    </h2>
+    <ol>
+      {
+        posts.map((post) => (
+          <li class="flex gap-3">
+            <div class="min-w-1/10 relative">
+              <div class="w-0.5 h-full bg-foreground/30 absolute left-1/2 -translate-x-1/2" />
+              <div class="bg-foreground size-3 rounded-full absolute left-1/2 top-1/2 -translate-1/2" />
+            </div>
+            <div class="py-3">
+              <a
+                href={`blog/${post.frontmatter.slug}`}
+                class="inline-block text-base md:text-lg font-medium bg-muted px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
+              >
+                {post.frontmatter.title.trim()}
+              </a>
+              <span class="text-xs md:text-sm text-foreground/85">
+                {new Date(post.frontmatter.date).toLocaleDateString()}
+              </span>
             </div>
           </li>
         ))
