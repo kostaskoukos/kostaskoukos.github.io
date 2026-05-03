@@ -15,6 +15,16 @@ import "./global.css";
       content="Kostas Koukos' personal portfolio website with a short summary, projects, blog posts and contact information."
     />
     <title>{import.meta.env.DEV ? "Local" : "Kostas Koukos"}</title>
+    <script is:inline>
+      const getTheme = () => {
+        if (localStorage.getItem("theme")) return localStorage.getItem("theme");
+
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+      if (getTheme() == "dark") document.documentElement.classList.add("dark");
+    </script>
   </head>
   <body class="max-w-full font-mono bg-background text-foreground px-4">
     <header
@@ -58,18 +68,10 @@ import "./global.css";
         class="cursor-pointer size-4 rounded-full bg-foreground"></button>
       <script>
         const doc = document.documentElement;
-        const toggleDark = () => {
-          doc.classList.toggle("dark");
-          localStorage.setItem(
-            "theme",
-            doc.classList.contains("dark") ? "dark" : "light",
-          );
-        };
-        document.querySelector("#theme")?.addEventListener("click", toggleDark);
-        if (localStorage.getItem("theme") == null) {
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches)
-            toggleDark();
-        } else if (localStorage.getItem("theme") === "dark") toggleDark();
+        doc.querySelector("#theme")?.addEventListener("click", () => {
+          const isDark = doc.classList.toggle("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
       </script>
     </header>
     <main class="max-w-3xl mx-auto py-5 space-y-15">
