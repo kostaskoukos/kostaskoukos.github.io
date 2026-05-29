@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.2.4",
-    "astro": "6.2.1",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "6.4.2",
     "prettier-plugin-astro": "^0.14.1",
-    "tailwindcss": "^4.2.4"
+    "tailwindcss": "^4.3.0"
   },
   "engines": {
     "node": ">=22.12.0"
