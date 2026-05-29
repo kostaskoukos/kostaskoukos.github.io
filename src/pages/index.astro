@@ -1,5 +1,6 @@
 ---
 import Layout from "../Layout.astro";
+import Link from "../Link.astro";
 import { Image } from "astro:assets";
 import me from "../me.jpeg";
 
@@ -158,12 +159,12 @@ const posts = Object.values(
               <div class="bg-foreground size-3 rounded-full absolute left-1/2 top-1/2 -translate-1/2" />
             </div>
             <div class="py-3">
-              <a
+              <Link
                 href={`blog/${post.frontmatter.slug}`}
-                class="inline-block text-base md:text-lg font-medium bg-surface px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
+                class="text-base md:text-lg"
               >
                 {post.frontmatter.title.trim()}
-              </a>
+              </Link>
               <span class="text-xs md:text-sm text-foreground/85">
                 {new Date(post.frontmatter.date).toLocaleDateString()}
               </span>
@@ -181,28 +182,28 @@ const posts = Object.values(
       <li class="flex">
         <span class="w-25 text-surface-foreground text-xs md:text-sm"
           >email:</span
-        ><a
-          class="text-sm md:text-base font-semibold bg-surface px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
+        ><Link
+          class="text-sm md:text-base"
           href="mailto:kkonst2014@gmail.com"
-          target="_blank">kkonst2014@gmail.com</a
+          target="_blank">kkonst2014@gmail.com</Link
         >
       </li>
       <li class="flex">
         <span class="w-25 text-surface-foreground text-xs md:text-sm"
           >github:</span
-        ><a
-          class="text-sm md:text-base font-semibold bg-surface px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
+        ><Link
+          class="text-sm md:text-base"
           href="https://github.com/kostaskoukos"
-          target="_blank">/kostaskoukos</a
+          target="_blank">/kostaskoukos</Link
         >
       </li>
       <li class="flex">
         <span class="w-25 text-surface-foreground text-xs md:text-sm"
           >instagram:</span
-        ><a
-          class="text-sm md:text-base font-semibold bg-surface px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background"
+        ><Link
           href="https://www.instagram.com/konstantinoskoukos_/"
-          target="_blank">/konstantinoskoukos_</a
+          target="_blank"
+          class="text-sm md:text-base">/konstantinoskoukos_</Link
         >
       </li>
       <li class="flex">
