@@ -56,7 +56,7 @@ const posts = Object.values(
   <section id="home">
     <div class="flex items-center gap-2">
       <Image
-        class="rounded-full object-cover aspect-square w-32 md:w-48 lg:w-64"
+        class="rounded-full object-cover aspect-square w-30 md:w-48 lg:w-64"
         layout="constrained"
         src={me}
         width="600"
@@ -76,6 +76,11 @@ const posts = Object.values(
       combine fundamental theoretic knowledge with practical, project experience
       to be as productive as possible!
     </p>
+    <div class="flex justify-end-safe">
+      <a href="/cv.pdf" rel="noopener noreferrer" class="text-sm md:text-base font-bold py-2 px-2 bg-foreground text-background ring-2 ring-transparent ring-offset-2 ring-offset-background hover:ring-foreground active:ring-foreground hover:scale-102 active:scale-99">
+        Check out my CV! →
+      </a>
+    </div>
   </section>
   <section id="projects">
     <h2 class="text-xl md:text-2xl lg:text-3xl m-4 font-bold tracking-tight">
