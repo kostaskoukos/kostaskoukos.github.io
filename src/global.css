@@ -26,4 +26,44 @@
   }
 }
 
+@utility prose-theme {
+  --tw-prose-body: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-headings: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-lead: color-mix(in srgb, var(--color-foreground), var(--color-background) 22%);
+  --tw-prose-links: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-bold: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-counters: color-mix(in srgb, var(--color-foreground), var(--color-background) 38%);
+  --tw-prose-bullets: color-mix(in srgb, var(--color-foreground), var(--color-background) 55%);
+  --tw-prose-hr: color-mix(in srgb, var(--color-foreground), var(--color-background) 85%);
+  --tw-prose-quotes: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-quote-borders: color-mix(in srgb, var(--color-foreground), var(--color-background) 80%);
+  --tw-prose-captions: color-mix(in srgb, var(--color-foreground), var(--color-background) 35%);
+  --tw-prose-kbd: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-kbd-shadows: color-mix(in srgb, var(--color-foreground), transparent 85%);
+  --tw-prose-code: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-pre-code: var(--color-light);
+  --tw-prose-pre-bg: color-mix(in srgb, var(--color-foreground), var(--color-background) 88%);
+  --tw-prose-th-borders: color-mix(in srgb, var(--color-foreground), var(--color-background) 75%);
+  --tw-prose-td-borders: color-mix(in srgb, var(--color-foreground), var(--color-background) 85%);
+
+  --tw-prose-invert-body: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-invert-headings: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-invert-lead: color-mix(in srgb, var(--color-foreground), var(--color-background) 22%);
+  --tw-prose-invert-links: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-invert-bold: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-invert-counters: color-mix(in srgb, var(--color-foreground), var(--color-background) 38%);
+  --tw-prose-invert-bullets: color-mix(in srgb, var(--color-foreground), var(--color-background) 55%);
+  --tw-prose-invert-hr: color-mix(in srgb, var(--color-foreground), var(--color-background) 85%);
+  --tw-prose-invert-quotes: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-invert-quote-borders: color-mix(in srgb, var(--color-foreground), var(--color-background) 80%);
+  --tw-prose-invert-captions: color-mix(in srgb, var(--color-foreground), var(--color-background) 35%);
+  --tw-prose-invert-kbd: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-invert-kbd-shadows: color-mix(in srgb, var(--color-foreground), transparent 85%);
+  --tw-prose-invert-code: color-mix(in srgb, var(--color-foreground) 90%, transparent);
+  --tw-prose-invert-pre-code: var(--color-light);
+  --tw-prose-invert-pre-bg: color-mix(in srgb, var(--color-foreground), var(--color-background) 88%);
+  --tw-prose-invert-th-borders: color-mix(in srgb, var(--color-foreground), var(--color-background) 75%);
+  --tw-prose-invert-td-borders: color-mix(in srgb, var(--color-foreground), var(--color-background) 85%);
+}
+
 @custom-variant dark (&:where(.dark, .dark *));

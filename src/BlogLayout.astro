@@ -1,0 +1,26 @@
+---
+import Layout from "./Layout.astro";
+import type { MarkdownLayoutProps } from 'astro';
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  date: string;
+}>;
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout>
+  <article class="prose prose-theme prose-sm md:prose-base lg:prose-lg mx-auto">
+    <span class="text-xs md:text-sm text-foreground/50"
+    >{new Date(frontmatter.date).toLocaleDateString()}</span
+    >
+    <h1
+      class="table mx-auto p-1 text-lg md:text-2xl lg:text-3xl bg-foreground text-background font-black tracking-tight"
+    >
+      {frontmatter.title}
+    </h1>
+    <slot />
+  </article>
+</Layout>
+
