@@ -2,6 +2,7 @@
 import Layout from "../Layout.astro";
 import Link from "../Link.astro";
 import { Image } from "astro:assets";
+import type { MarkdownInstance } from 'astro';
 import me from "../me.jpeg";
 
 const projects = [
@@ -43,13 +44,13 @@ const projects = [
 ];
 
 const posts = Object.values(
-  import.meta.glob("./blog/*.astro", { eager: true }),
+  import.meta.glob<MarkdownInstance<{ title: string; date: string}>>("./blog/*.md", { eager: true }),
 ).sort((a: any, b: any) => {
   return (
     new Date(b.frontmatter.date).valueOf() -
     new Date(a.frontmatter.date).valueOf()
   );
-}) as { frontmatter: { title: string; date: string; slug: string } }[];
+});
 ---
 
 <Layout>
@@ -144,7 +145,7 @@ const posts = Object.values(
             </div>
             <div class="py-3">
               <Link
-                href={`blog/${post.frontmatter.slug}`}
+                href={post.url}
                 class="text-base md:text-lg"
               >
                 {post.frontmatter.title.trim()}
