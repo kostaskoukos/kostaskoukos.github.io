@@ -6,6 +6,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "7.2.4",
     "prettier-plugin-astro": "^0.14.1",
+    "satteri-callouts": "^1.0.0",
     "tailwindcss": "^4.3.3"
   },
   "engines": {

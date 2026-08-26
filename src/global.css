@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@import 'satteri-callouts/theme/obsidian';
 
 @font-face {
   font-family: "JetBrains Mono";
