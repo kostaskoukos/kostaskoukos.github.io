@@ -13,9 +13,13 @@ const { frontmatter } = Astro.props;
 <Layout>
   <article class="prose prose-theme prose-sm md:prose-base lg:prose-lg mx-auto">
     <span class="text-xs md:text-sm text-foreground/50"
-    >{new Date(frontmatter.date).toLocaleDateString()}</span
+      >{
+        new Date(frontmatter.date).toLocaleDateString(undefined, {
+          dateStyle: "medium",
+        })
+      }</span
     >
-    <div class="text-center">
+    <div class="m-1 text-center">
       <h1
         class="inline p-1 text-lg md:text-2xl lg:text-3xl bg-foreground text-background font-black tracking-tight"
       >

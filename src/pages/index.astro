@@ -2,7 +2,7 @@
 import Layout from "../Layout.astro";
 import Link from "../Link.astro";
 import { Image } from "astro:assets";
-import type { MarkdownInstance } from 'astro';
+import type { MarkdownInstance } from "astro";
 import me from "../me.jpeg";
 
 const projects = [
@@ -44,7 +44,10 @@ const projects = [
 ];
 
 const posts = Object.values(
-  import.meta.glob<MarkdownInstance<{ title: string; date: string}>>("./blog/*.md", { eager: true }),
+  import.meta.glob<MarkdownInstance<{ title: string; date: string }>>(
+    "./blog/*.md",
+    { eager: true },
+  ),
 ).sort((a: any, b: any) => {
   return (
     new Date(b.frontmatter.date).valueOf() -
@@ -78,7 +81,11 @@ const posts = Object.values(
       to be as productive as possible!
     </p>
     <div class="flex justify-end-safe">
-      <a href="/cv.pdf" rel="noopener noreferrer" class="text-sm md:text-base font-bold py-2 px-2 bg-foreground text-background ring-2 ring-transparent ring-offset-2 ring-offset-background hover:ring-foreground active:ring-foreground hover:scale-102 active:scale-99">
+      <a
+        href="/cv.pdf"
+        rel="noopener noreferrer"
+        class="text-sm md:text-base font-bold py-2 px-2 bg-foreground text-background ring-2 ring-transparent ring-offset-2 ring-offset-background hover:ring-foreground active:ring-foreground hover:scale-102 active:scale-99"
+      >
         Check out my CV! →
       </a>
     </div>
@@ -97,7 +104,11 @@ const posts = Object.values(
             </div>
             <div class="py-3">
               {project.url ? (
-                <Link class="text-base md:text-lg" href={project.url} about="_self">
+                <Link
+                  class="text-base md:text-lg"
+                  href={project.url}
+                  about="_self"
+                >
                   {project.name}
                 </Link>
               ) : (
@@ -144,14 +155,13 @@ const posts = Object.values(
               <div class="bg-foreground size-3 rounded-full absolute left-1/2 top-1/2 -translate-1/2" />
             </div>
             <div class="py-3">
-              <Link
-                href={post.url}
-                class="text-base md:text-lg"
-              >
+              <Link href={post.url} class="text-base md:text-lg">
                 {post.frontmatter.title.trim()}
               </Link>
               <span class="text-xs md:text-sm text-foreground/85">
-                {new Date(post.frontmatter.date).toLocaleDateString()}
+                {new Date(post.frontmatter.date).toLocaleDateString(undefined, {
+                  dateStyle: "medium",
+                })}
               </span>
             </div>
           </li>
