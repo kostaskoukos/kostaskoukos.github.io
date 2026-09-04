@@ -67,4 +67,8 @@
   --tw-prose-invert-td-borders: color-mix(in srgb, var(--color-foreground), var(--color-background) 85%);
 }
 
+@utility link {
+  @apply inline font-medium bg-surface px-1 py-0.5 hover:bg-foreground active:bg-foreground hover:text-background active:text-background;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));

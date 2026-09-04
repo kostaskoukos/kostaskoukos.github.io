@@ -11,7 +11,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout>
-  <article class="prose prose-theme prose-sm md:prose-base lg:prose-lg mx-auto">
+  <article class="prose prose-theme prose-a:no-underline prose-a:link prose-sm md:prose-base lg:prose-lg mx-auto">
     <span class="text-xs md:text-sm text-foreground/50"
       >{
         new Date(frontmatter.date).toLocaleDateString(undefined, {
