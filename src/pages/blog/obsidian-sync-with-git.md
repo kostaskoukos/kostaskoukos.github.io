@@ -2,6 +2,7 @@
 layout: ../../BlogLayout.astro
 title: "How I made my own Obsidian Sync with Git"
 date: "2026-08-26"
+description: "A practical guide to syncing Obsidian notes across desktop and Android using Git and the obsidian-git plugin."
 ---
 
 Lately I have been using [Obsidian](https://obsidian.md/) for my personal CS knowledge base and notes.

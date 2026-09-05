@@ -2,6 +2,7 @@
 layout: ../../BlogLayout.astro
 title: "My custom home server dashboard"
 date: "2026-09-04"
+description: "How I built and deployed a Raspberry Pi dashboard to monitor Docker containers with FastAPI and async background updates."
 ---
 You can check out the source code for this project on [GitHub](https://github.com/kostaskoukos/pi-dashboard).
 
@@ -74,6 +75,7 @@ I dockerized the app with a simple `Dockerfile` and deployed it on my Raspberry 
 ## The future
 
 In the future I may add more features to this dashboard like
+
 - Streaming real-time stats (which would require frontend setup)
 - Controlling the containers (start/stop/restart)
 - Live logs for each container

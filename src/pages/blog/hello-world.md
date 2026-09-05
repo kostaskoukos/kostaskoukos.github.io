@@ -2,6 +2,7 @@
 layout: ../../BlogLayout.astro
 title: "Hello World!"
 date: "2026-05-01"
+description: "Introductory post about starting this personal blog and the topics I want to share."
 ---
 
 I am a 19 year old computer science major in Thessaloniki, Greece and I am
