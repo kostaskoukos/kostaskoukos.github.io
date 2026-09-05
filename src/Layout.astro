@@ -1,5 +1,27 @@
 ---
 import "./global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogType?: "website" | "article";
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const {
+  title,
+  description = "Kostas Koukos' personal portfolio website with a short summary, projects, blog posts and contact information.",
+  canonical,
+  ogType = "website",
+  structuredData,
+} = Astro.props as Props;
+
+const site = Astro.site;
+const pageTitle = title ?? (import.meta.env.DEV ? "Local" : "Kostas Koukos");
+const pageUrl = new URL(canonical || Astro.url.pathname, site).toString();
+const socialImage = new URL("/favicon.svg", site).toString();
+const structuredDataJson = structuredData && JSON.stringify(structuredData);
 ---
 
 <!doctype html>
@@ -8,13 +30,31 @@ import "./global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Kostas Koukos' personal portfolio website with a short summary, projects, blog posts and contact information."
+    <link
+      rel="preload"
+      href="/JetBrainsMono.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
-    <title>{import.meta.env.DEV ? "Local" : "Kostas Koukos"}</title>
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    {
+      structuredDataJson && (
+        <script type="application/ld+json" set:html={structuredDataJson} />
+      )
+    }
     <script is:inline>
       const getTheme = () => {
         if (localStorage.getItem("theme")) return localStorage.getItem("theme");
@@ -65,7 +105,11 @@ import "./global.css";
       <button
         aria-label="Toggle theme"
         id="theme"
-        class="cursor-pointer size-4 rounded-full bg-foreground"></button>
+        class="relative inline-flex size-8 cursor-pointer items-center justify-center rounded-full border border-foreground/60 bg-background hover:bg-surface active:scale-95"
+      >
+        <span aria-hidden="true" class="size-3 rounded-full bg-foreground"
+        ></span>
+      </button>
       <script>
         const doc = document.documentElement;
         doc.querySelector("#theme")?.addEventListener("click", () => {
