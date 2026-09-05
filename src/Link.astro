@@ -1,9 +1,23 @@
 ---
-const { class: className, ...rest } = Astro.props;
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a"> & {
+  class?: string;
+};
+
+const { class: className, rel, target, ...rest } = Astro.props as Props;
+
+const secureBlankRel =
+  target === "_blank"
+    ? Array.from(new Set(`${rel ?? ""} noopener noreferrer`.trim().split(/\s+/)))
+        .join(" ")
+    : rel;
 ---
 
 <a
   class:list={["link", className]}
+  target={target}
+  rel={secureBlankRel}
   {...rest}
 >
   <slot />
